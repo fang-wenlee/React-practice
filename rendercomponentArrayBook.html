@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+
+    <header id="myHead"></header>
+    <div id="root"></div>
+
+<script type="text/babel">
+const Lake  = ({name}) => <h1>{name}</h1>;
+
+//function : make sure first name is uppercase
+
+
+
+   let booklist = [ {"title" : "Hunger",  "author": "Roxane Gne",  "pages":520},
+                    {"title" : "The Sun Also Rises",  "author": "Ernest Hemingway",  "pages": 260},
+                    {"title" : "White Teeth",  "author": "Azdie Smith",  "pages": 320},
+                    {"title" : "Cat's Cradle",  "author":"Kurt Vonnegut",  "pages": 304}
+                  ]
+
+
+const Book =({title, author, pages}) =>{
+          return ( <section>
+                    <h2>{title}</h2>
+                    <p>by: {author}</p>
+                    <p>Page: {pages} pages</p>
+                    </section>
+                )
+}
+const Library =({books}) => {
+                       return (
+                         <div>
+                            {books.map(
+                              (book, i) =>
+                              <Book key={i} title={book.title} author={book.author} pages={book.pages}/>
+                             )}
+                         </div>
+)
+}
+
+ReactDOM.render(
+                <Library books={booklist} />,
+                document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>

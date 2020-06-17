@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+
+//function : make sure first name is uppercase
+//const LakeList =["Lake Tahoe", "Angore Lake", "Shirley Lake"]// data component
+const LakeList = [ { id: 1, name: "Lake Tahoe", trailhead :"Echo Lake"  },
+                   { id: 2, name: "Angore Lake", trailhead :"Echo Lake"  },
+                   { id: 3, name: "Shirley Lake", trailhead :"Echo Lake"  } ];
+
+
+
+//UI compoet; loops
+const App =({Lakes}) => (
+                     <ul>
+                     {
+                        Lakes.map( (Lake) => <li key= {Lake.id} > {Lake.name} | {Lake.trailhead}</li>)
+                     }
+                     </ul>
+                    )
+
+
+
+
+ReactDOM.render(
+                 <App Lakes={ LakeList } />,
+                  document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>

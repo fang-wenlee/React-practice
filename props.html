@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+
+/*
+const Hello = (props) => {return(
+                            <div className="heading">
+                            <h1>Create a Function { props.language}component</h1>
+                            <p>{props.message}</p>
+                            </div>
+                          )}
+
+console.log ( props) */
+
+const Hello = ({language, message}) => {return(
+                            <div className="heading">
+                            <h1>Create a  { language} component</h1>
+                            <p>{message}</p>
+                            </div>
+                          )}
+ReactDOM.render(
+                 <Hello language="React"  message="Make sure include 2 React Library"/>,
+                  document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>
