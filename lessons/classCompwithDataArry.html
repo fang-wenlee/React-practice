@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+    <script type="text/babel">
+//function component
+const Navbar = () => <a href="../index.html">Home</a>
+
+const Lake = ({name, size, freeAdmission}) => {
+     return(
+            <div>
+            <h2>{name}</h2>
+            <p>{size} acres</p>
+            <p>Free Admission Today:{freeAdmission ? 'FREE Entrance' : 'NO'}</p>
+            </div>
+          )
+    }
+
+    
+    class Library extends React.Component{
+ // use when ther is no data is the array list
+     static defaultProps ={
+          lakes:[{'name' : 'Mission Lake', 'size' : '1000'}]
+     }
+      state = { open: false,
+                freeAdmission: true }
+
+            render() {
+              const {lakes} = this.props;
+
+                   return (
+                            <div>
+                            <Navbar></Navbar>
+                            <h2>The laske is {this.state.open? 'Open' : 'Closed'}</h2>
+                             {lakes.map( (lake, i) =>
+                                <Lake key={i}  name={lake.name} size ={lake.size} freeAdmission={this.state.freeAdmission}/>
+                             )}
+
+                            </div>
+                          )
+                  }
+          }
+
+
+  let lakelist= [{'name':'lakeTahoe',  'size': 450},
+                 {'name':'Angore Lake', 'size': 750},
+                  {'name':'Shirley Lake', 'size': 530}
+  ]
+
+
+
+    ReactDOM.render(
+            <Library lakes={lakelist} />,
+            document.getElementById("root")
+
+    );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+
+const Navbar = () => <a href="../index.html">Home</a>
+
+class Myhead extends React.Component{
+      render() {
+        return <h2>I am a Car!</h2>;
+    }
+  }
+
+class Car extends React.Component{
+    constructor(props){
+    super(props);
+    this.state ={modle : "Collora",
+            year :  "2000",
+            color:  "Red",
+            brand:  "Toyota"
+           }
+
+    }
+
+      render() {
+           return (<div>
+                  <Navbar />
+                  <Myhead />
+                  <h2>Brand: {this.state.brand}</h2>
+                  <h2>Modle: {this.state.modle}</h2>
+                  <h2>Year: {this.state.year}</h2>
+                  <h2>Color: {this.state.color}</h2>
+                  </div>);
+
+              }
+      }
+
+ReactDOM.render(
+                 <Car />,
+                  document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div -->
+    <div id="root"></div>
+   <p style="color:red">It can't display  content display by React</p>
+
+<script type="text/babel">
+const Navbar = () => <a href="../index.html">Home</a>
+ReactDOM.render(
+            <div>
+              <Navbar ></Navbar>
+            <h1> hello React </h1>
+            </div>
+                ,
+                  document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>

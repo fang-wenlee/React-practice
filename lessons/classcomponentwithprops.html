@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+  const Navbar = () => <a href="../index.html">Home</a>
+const Lake = ({name}) => <h1>{name}</h1>;
+
+class App extends React.Component{
+
+
+      render() {
+               return (
+                        <div>
+                               <Navbar></Navbar>
+                                <Lake name = "Lake Tahoe" />
+                                <Lake name = "Angore Lake" />
+                                 <Lake name = "Shirley Lake" />
+                                 <Lake name = "Mission Lake" />
+                        </div>
+                      )
+              }
+      }
+
+
+
+
+
+ReactDOM.render(
+                 <App />,
+                  document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>

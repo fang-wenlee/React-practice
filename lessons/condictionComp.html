@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+
+//function : make sure first name is uppercase
+const HeaderB1 = ({name}) => <h1>{name}</h1>;
+const HeaderB2 = ({name}) => <h1>{name}</h1>;
+const Navbar = () => <a href="../index.html">Home</a>
+
+const App =({display}) => ( <div>
+                           <Navbar ></Navbar>
+                           {display ?
+                             <HeaderB1 name="Lake Tahoe" /> :
+                              <HeaderB2  name="Alpine Resort"/> }
+                     </div>
+                    )
+
+
+
+
+ReactDOM.render(
+                 <App display={false} />,
+                  document.getElementById("root")
+
+);
+</script>
+  </body>
+</html>

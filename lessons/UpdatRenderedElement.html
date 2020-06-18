@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+const Navbar = () => <a href="../index.html">Home</a>
+function tick() {
+  const element = (
+    <div>
+       <Navbar />
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+
+  ReactDOM.render(element,
+                  document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+
+</script>
+  </body>
+</html>

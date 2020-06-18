@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+<script type="text/babel">
+const Navbar = () => <a href="../index.html">Home</a>
+
+const BoilingVerdict = (props) =>{
+  if (props.celsius >= 100) {
+       return <p>The water would boil.</p>;
+     }
+    return <p>The water would not boil.</p>
+  }
+/*function BoilingVerdict(props) {
+  if (props.celsius >= 100) {
+    return <p>The water would boil.</p>;
+  }
+  return <p>The water would not boil.</p>;
+} */
+
+class Calculator extends React.Component {
+  /*constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {temperature: ''};
+  }
+
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
+  } */
+
+  state = {temperature: ''};
+  handleChange = e =>
+    this.setState({temperature: e.target.value})
+
+
+  render() {
+    const temperature = this.state.temperature;
+    return (
+     <div>
+     <Navbar />
+
+      <fieldset>
+        <legend>Enter temperature in Celsius:</legend>
+        <input
+          value={temperature}
+          onChange={this.handleChange} />
+        <BoilingVerdict
+          celsius={parseFloat(temperature)} />
+      </fieldset>
+
+       </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Calculator />,
+  document.getElementById('root')
+);
+
+</script>
+  </body>
+</html>

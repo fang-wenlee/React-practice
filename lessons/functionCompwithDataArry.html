@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Function Componet with Data List Array </title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  </head>
+  <body>
+    <!-- create html div ; cant use class name for react-->
+    <div id="root"></div>
+
+    <script type="text/babel">
+   const Navbar = () => <a href="../index.html">Home</a>
+
+    const Lake = ({name, size}) => {
+     return(
+            <div>
+            <h2>{name}</h2>
+            <p>{size} acres</p>
+            </div>
+          )
+    }
+    const Library =({lakes}) =>{
+
+                   return (
+                            <div>
+
+                            <Navbar></Navbar>
+                             {lakes.map( (lake, i) =>
+                                <Lake key={i}  name={lake.name} size ={lake.size}/>
+                             )}
+
+                            </div>
+                          )
+
+          }
+
+          let lakelist= [{'name':'lakeTahoe',  'size': 450},
+                         {'name':'Angore Lake', 'size': 750},
+                          {'name':'Shirley Lake', 'size': 530}
+          ]
+
+
+
+    ReactDOM.render(
+            <Library lakes={lakelist} />,
+            document.getElementById("root")
+
+    );
+    </script>
+  </body>
+</html>

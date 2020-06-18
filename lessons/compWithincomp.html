@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React Project</title>
+        <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+/*Component's name must start with an upper case letter
+ Component has to include the extends React.Component
+ - This give you access to React.Component's Function
+*/
+//this is funciton component call car
+        function Cars () {
+          return <h2>I love my second Car!</h2>;
+        }
+
+const Navbar = () => <a href="../index.html">Home</a>
+//*********************************************************
+//The constructor function is where you initiate the components's property - this.state.
+//Props are like function arguments, and you send them into the component as attributes.
+  class Car extends React.Component{
+              state ={
+                           color: "Silver",
+                           year: "2020",
+                           modle: "Toyota"};
+
+          render(){
+            return (
+               <div><h2>
+                {this.state.year }
+                {this.state.modle }
+                {this.props.brand}  With
+               { this.state.color} color!
+               </h2>
+               <Cars></Cars>
+               </div>);
+          }
+        }
+//Components in Component
+//********************************************************************************
+              class Garage extends React.Component{
+
+                  render(){
+                    return (
+                      <div>
+                        <Navbar ></Navbar>
+                       <Car brand = "Rav4"/>
+                            <h1> 2020 for $14,000  </h1>
+
+                             <Cars></Cars>
+                       </div>)
+
+                  }
+              }
+
+ //Props are arguments passed to React Components
+ //Props are passed to component via HTML attributes
+//React Props are like function arguments in JavaScript and attributes in HTML
+
+            ReactDOM.render(
+               <Garage />,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>
