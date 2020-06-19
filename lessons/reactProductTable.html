@@ -35,6 +35,7 @@ class ProductCategoryRow extends React.Component {
 }
 //row-------------------------------------------
 class ProductRow extends React.Component {
+
   render() {
     const product = this.props.product;
 
@@ -112,7 +113,7 @@ class ProductTableOutline extends React.Component {
 
   state = { filterText: '', inStockOnly: false}
 
-  
+
 
   handleFilterTextChange = (filterText) =>
     this.setState({
@@ -129,13 +130,14 @@ class ProductTableOutline extends React.Component {
 
   render() {
 
+            const {products} = this.props;
     return (
       <div>
        <Navbar />
        <br/><br/>
 
         <ProductTable
-          products={this.props.products}
+          products={products}
           filterText={this.state.filterText}
            inStockOnly={this.state.inStockOnly}
           />
