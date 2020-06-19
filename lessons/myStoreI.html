@@ -8,8 +8,9 @@
 
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
-  .productTable { border: 1px solid black; }
-  tr { backgroundColor: yellow}
+  .productTable, th, td { border: 1px solid black;  font-family: Arial; width: 80%; padding: 10px 10px;}
+  thead  tr:first-child{ text-align: left;   background-color: black; color: white; }
+ tr #category{ background-color:  green; color:white;}
 </style>
   </head>
   <body>
@@ -23,7 +24,7 @@ const Navbar = () => <a href="../index.html">Home</a>
 //category row
 const ProductCategory = ({category}) => {
     return (
-            <tr><td col='2'>
+            <tr><td colspan='2' id='category'>
                 <b>{category}:</b>
                     </td>
             </tr>
@@ -40,12 +41,14 @@ class ProductRow extends React.Component {
         {product.name}
       </span>;
 
+      const price = product.stocked ? product.price :  'Not Available '
+
     return (
       <tr >
         <td>{name}</td>
-        <td>{product.price}</td>
+        <td>{price}</td>
       </tr>
-    );
+    )
   }
 }
 //***************************************
@@ -81,7 +84,7 @@ class ProductTable extends React.Component {
     return (
       <table className='productTable'>
         <thead >
-          <tr style={{'backgroundColor': 'yellow' }}>
+          <tr >
             <th>Name</th>
             <th>Price</th>
           </tr>
@@ -142,7 +145,6 @@ class Checkstock extends React.Component {
 
     render() {
           const {products} = this.props;
-
       return (
         <div>
          <Navbar />
@@ -151,10 +153,35 @@ class Checkstock extends React.Component {
             The Store is {this.state.open ? 'Open' : 'Close'}
          </h1>
          <button onClick={this.toggleOpenClosed}>Change</button>
-         <Checkstock inStockOnly={this.state.inStock}
-             onInStockChange={this.handleInStockChange}/>
+            <Checkstock
+                     inStockOnly={this.state.inStock}
+                     onInStockChange={this.handleInStockChange}/>
 
              <ProductTable
+              products={this.props.products}
+               inStockOnly={this.state.inStock}/>
+        </div>
+      )
+    }
+  }
+  class Storelocal extends React.Component {
+    state = { inStock: false}
+
+    handleInStockChange = (inStock) => {
+      this.setState({inStock: inStock})
+    }
+
+    render() {
+          const {products} = this.props;
+      return (
+        <div>
+         <Navbar />
+         <br/>
+
+        <Checkstock
+                 inStockOnly={this.state.inStock}
+                 onInStockChange={this.handleInStockChange}/>
+        <ProductTable
               products={this.props.products}
                inStockOnly={this.state.inStock}/>
         </div>
@@ -173,7 +200,7 @@ class Checkstock extends React.Component {
   ];
 
   ReactDOM.render(
-    <Store products={ProductList}  color="blue"/>,
+    <Storelocal  products={ProductList}  color="blue"/>,
   document.getElementById('root'))
 
 
