@@ -5,6 +5,8 @@
         <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/nav.css">
+
     </head>
     <body>
         <div id="root"></div>
@@ -12,15 +14,15 @@
 
         <script type="text/babel">
           const myelement = (
-          <div>
+          <nav>
           <ol>
           <li>
                React Create Element
-                                     <ol>
+                                     <ul>
                                       <li><a href= "lessons/intro.html"> Hello </a></li>
                                        <li><a href= "lessons/ReactDom.html">React createElement</a></li>
                                        <li><a href= "lessons/nestElement.html">React createElement(S)</a></li>
-                                     </ol>
+                                     </ul>
           </li>
           <li>
              <a href= "lessons/JSX.html">Simple JSX</a>
@@ -41,7 +43,7 @@
 
             <li>
                  Function Components
-                <ol>
+                 <ul>
                    <li><a href= "lessons/functionCompWithFunctionComp.html">Function-Component within Function-Component I </a></li>
                    <li>
                      <a href= "lessons/functionCompWithFunctionCompII.html">  Function-Component within Function-Component II</a></li>
@@ -58,7 +60,7 @@
                      </a>
                    </li>
 
-                </ol>
+                </ul>
 
             </li>
 
@@ -69,7 +71,7 @@
 
 
           <li>Class Component
-             <ol>
+             <ul>
 
                <li>
                  <a href= "lessons/classcomponentincomponent.html">class component with value assign to state and data from props</a>
@@ -83,14 +85,14 @@
                </li>
 
 
-             </ol>
+             </ul>
 
           </li>
 
 
 
           <li>Class Component && Function Component
-             <ol>
+             <ul>
                 <li>
                   <a href= "lessons/classcompcallingfunctcomp.html">Class Component W value assign to state</a>
                </li>
@@ -106,12 +108,12 @@
                </li>
 
 
-             </ol>
+             </ul>
 
           </li>
 
           <li>state and setState - need to used wtihin class component
-             <ol>
+             <ul>
                 <li>
                  <a href= "lessons/statewithevent.html"> Class Component with method :  state and setState I</a>
                  </li>
@@ -125,13 +127,13 @@
                  <li>
                    <a href= "lessons/useStateWclass.html"> Class Component: Assign arraylist to props and use state and setState III</a>
                  </li>
-             </ol>
+             </ul>
              </li>
 
 
 
             <li>
-                  Product Table<ol>
+                  Product Table<ul>
                      <li>
                        <a href= "lessons/reactProductTable.html">Product Table I </a>
                      </li>
@@ -141,10 +143,12 @@
                      <li>
                        <a href= "lessons/reactProject.html">Product Table W/checkbox and search III -Original  </a>
                      </li>
-                                </ol>
+                                </ul>
             </li>
             <li>
-                     My Store<ol><li>
+                     My Store
+                           <ul>
+                             <li>
                                 <a href= "lessons/mystore.html">My Store example with arrylist</a>
                                 </li>
                                 <li>
@@ -153,11 +157,11 @@
                                 <li>
                                   <a href= "lessons/mystoreI.html">My Store  with css style</a>
                                 </li>
-                                </ol>
+                                </ul>
             </li>
             <li>
                      Others:
-                     <ol>
+                     <ul>
                        <li>
                          <a href= "lessons/reactBoilingwater.html">Boiling Water </a>
                        </li>
@@ -167,13 +171,13 @@
                        <li>
                          <a href= "lessons/react_1.html">Using React with no build tooling: include .js  </a>
                        </li>
-                    </ol>
+                    </ul>
             </li>
 
 
 
           </ol>
-          </div>
+          </nav>
           )
 
             ReactDOM.render(
