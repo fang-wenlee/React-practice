@@ -14,8 +14,8 @@
  - This give you access to React.Component's Function
 */
 //this is funciton component call car
-        function Cars () {
-          return <h2>I love my second Car!</h2>;
+function Cars () {
+          return <h1> 2020 for $14,000  </h1>
         }
 
 const Navbar = () => <a href="../index.html">Home</a>
@@ -29,33 +29,33 @@ const Navbar = () => <a href="../index.html">Home</a>
                            modle: "Toyota"};
 
           render(){
+
+            const {brand} = this.props;
             return (
                <div><h2>
                 {this.state.year }
                 {this.state.modle }
-                {this.props.brand}  With
+                {brand}  With
                { this.state.color} color!
                </h2>
-               <Cars></Cars>
+               
                </div>);
           }
         }
 //Components in Component
 //********************************************************************************
-              class Garage extends React.Component{
+  class Garage extends React.Component{
 
-                  render(){
-                    return (
-                      <div>
-                        <Navbar ></Navbar>
-                       <Car brand = "Rav4"/>
-                            <h1> 2020 for $14,000  </h1>
+      render(){
+        return (
+          <div>
+            <Navbar ></Navbar>
+            <Car brand = "Rav4"/>
+            <Cars></Cars>
+           </div>)
 
-                             <Cars></Cars>
-                       </div>)
-
-                  }
-              }
+      }
+  }
 
  //Props are arguments passed to React Components
  //Props are passed to component via HTML attributes

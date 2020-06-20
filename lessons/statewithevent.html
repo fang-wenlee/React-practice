@@ -24,21 +24,23 @@ const Lake = ({name}) => <h1>{name}</h1>;
 
 class App extends React.Component{
 //state is similar to the variable declare within funcion
-  state = {login : true}
+  state = {open : true}
 //method
-      loginmethod =() => this.setState ({login: false});
-      logoutmethod =() => this.setState ({login: true});
+      businessclosed =() => this.setState ({open: false});
+      businessopen =() => this.setState ({open: true});
       render() {
                return (
                         <div>
                               <Navbar /> <br/>
 
-                            
-                               <button onClick={this.loginmethod}>Log In</button>
-                               <button onClick={this.logoutmethod}>Log Out</button>
-                                <div>  {  this.state.login
-                                                     ? "You are login"
-                                                     : "You are not login" }
+
+                               <button onClick={this.businessclosed}>Closed</button>
+                               <button onClick={this.businessopen}>Open</button>
+                                <div> <h2> {  this.state.open
+                                                     ? "Lake are open"
+                                                     : "Lake are closed" }
+
+                                                     </h2>
                                 </div>
                                    <Lake name = "Lake Tahoe" />
                                    <Lake name = "Angore Lake" />

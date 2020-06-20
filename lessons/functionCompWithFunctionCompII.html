@@ -20,9 +20,20 @@
 
 const Navbar = () => <a href="../index.html">Home</a>
 const Lake  = ({name}) => <h1>{name}</h1>;
+const TableSample = () => {
+                       return(
+                       <table>
+                        <tr> <td>Name</td>
+                            <td>Price</td>
+                        </tr>
+                        <tr> <td>Samsung Galex</td>
+                             <td>$150</td>
+                        </tr>
+
+                        </table>)}
 //const Lesson =( <div><h1>Render component from a list</h1></div> );
 //function : make sure first name is uppercase
-  const App =({lesson}) => (
+const App =({lesson}) => (
                      <div>
 
                             <h2> Render component from {lesson}</h2>
@@ -30,6 +41,7 @@ const Lake  = ({name}) => <h1>{name}</h1>;
                              <Lake name = "Angore Lake" />
                               <Lake name = "Shirley Lake" />
                               <Lake name = "Mission Lake" />
+                              <TableSample />
                      </div>
                    )
 

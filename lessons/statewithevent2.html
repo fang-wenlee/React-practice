@@ -25,12 +25,12 @@ class Car extends React.Component {
     this.state = {
       brand: "Ford",
       model: "Mustang",
-      color: "red",
+      color: true,
       year: 1964
     };
   }
   //method
-  changeColor = () => this.setState({color: "blue"});
+  changeColor = () => this.setState({color: !this.state.color});
 
   render() {
     return (
@@ -38,7 +38,11 @@ class Car extends React.Component {
       <Navbar />
         <h1>My {this.state.brand}</h1>
         <p >
-          It is a  { this.state.color }  {this.state.model }
+          It is a  { this.state.color? "Red " : "Silver" }
+          <br/>
+
+
+          {this.state.model }
           from  { this.state.year}.
         </p>
         <button

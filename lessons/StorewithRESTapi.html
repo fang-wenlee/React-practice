@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React - lesson 1</title>
+    <script  src="https://unpkg.com/react@16.7.0/umd/react.development.js" > </script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js" > </script>
+
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  .productTable { border: 1px solid black;  width: 70%; font-family: arial }
+  tr { backgroundColor: yellow}
+</style>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+<script type="text/babel">
+
+const Navbar = () => <a href="../index.html">Home</a>
+
+//category row
+const ProductCategory = ({category}) => {
+    return (
+            <tr><td col='2'>
+                <b>{category}:</b>
+                    </td>
+            </tr>
+        )
+
+}
+//------------------------------------------
+class ProductRow extends React.Component {
+  render() {
+    const product = this.props.product;
+
+    const name = product.stocked ? product.name :
+      <span style={{color: 'black'}}>
+        {product.name}
+      </span>;
+
+    return (
+      <tr >
+       <td><img src={product.image} alt ={product.name} height={60}/></td>
+        <td>{name}</td>
+        <td>${product.price}</td>
+      </tr>
+    );
+  }
+}
+//***************************************
+class ProductTable extends React.Component {
+
+  render() {
+    const rows = [];
+    let lastCategory = null;
+    //const inStockOnly = this.props.inStockOnly;
+    const {inStockOnly} = this.props;
+    const {products} = this.props;
+
+  products.forEach((product) => {
+
+
+      if (product.category !== lastCategory) {
+        rows.push(
+          <ProductCategory category={product.category} key={product.category} />
+        );
+      }
+      rows.push(
+        <ProductRow
+          product={product}
+          key={product.name}
+        />
+      );
+      lastCategory = product.category;
+    });
+
+    return (
+      <table className='productTable'>
+        <thead >
+          <tr style={{'backgroundColor': 'yellow' }}>
+
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </table>
+    );
+  }
+}
+
+class ProductsDisplay extends React.Component {
+
+  render() {
+    const rows = [];
+
+    //const inStockOnly = this.props.inStockOnly;
+    const {loading} = this.props;
+    const {products} = this.props;
+
+  products.forEach((product) => {
+
+
+    /*  if (product.category !== lastCategory) {
+        rows.push(
+          <ProductCategory category={product.category} key={product.category} />
+        );
+      } */
+      rows.push(
+        <ProductRow
+          product={product}
+          key={product.name}
+        />
+      );
+
+    });
+
+    return (
+      <table className='productTable'>
+        <thead >
+          <tr style={{'backgroundColor': 'red' }}>
+            <th> Image</th>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </table>
+    );
+  }
+}
+
+  class Store extends React.Component {
+       state = { data:[], loading: false }
+
+        componentDidMount(){
+                 this.setState ( {loading: true})
+                 fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/5')
+                 .then(data => data.json())
+                 .then(data => this.setState({data, loading: false}))
+
+      }
+    render() {
+
+    return (
+      <div>
+
+        <Navbar /><br/>
+
+        <br/>
+          /*  {this.state.loading ? "loading.." :
+                     <div>
+                      {this.state.data.map( (product, i) =>{
+                            return(
+                                 <div key={i} >
+                                         <h4>{product.name} { '  $'}  {product.price}</h4>
+                                         <img src={product.image} alt ={product.name} height={100}/>
+                                         <p>
+                                          {product.description}
+                                         </p>
+                                 </div>
+                             )
+                      })} */
+
+                    <ProductsDisplay  products={this.state.data}   />
+
+<Navbar />
+                     </div>
+
+              }
+     </div>) //return
+  }
+}
+  ReactDOM.render(
+    <Store />,
+  document.getElementById('root'))
+
+
+</script>
+  </body>
+</html>
