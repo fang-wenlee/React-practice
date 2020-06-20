@@ -33,22 +33,21 @@ const TableSample = () => {
                         </table>)}
 //const Lesson =( <div><h1>Render component from a list</h1></div> );
 //function : make sure first name is uppercase
-const App =({lesson}) => (
+const App =({lesson, display}) => (
                      <div>
-
                             <h2> Render component from {lesson}</h2>
-                             <Lake name = "Lake Tahoe" />
-                             <Lake name = "Angore Lake" />
-                              <Lake name = "Shirley Lake" />
-                              <Lake name = "Mission Lake" />
-                              <TableSample />
+                            {display ?
+                             <><Lake name = "Lake Tahoe" />
+                             <Lake name = "MissionLake" /> </>:
+                             <TableSample />
+                            }
                      </div>
                    )
 
 ReactDOM.render(
                 <div>
                 <Navbar />
-                 <App lesson ="Passing Data" /> <hr />
+                 <App lesson ="Passing Data" display={true}/> <hr />
                  <App />
                  </div>
                  ,
