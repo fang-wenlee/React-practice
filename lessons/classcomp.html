@@ -11,13 +11,30 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-
+//passing props from class to class
 
      const Navbar = () => <a href="../index.html">Home</a>
+
+     class Pet extends React.Component {
+
+        render(){
+          const {animal} = this.props;
+
+             return (
+               <h2>I have a doggy pet named:  {animal}!</h2>
+             )
+      }}
+
+
+
       class Car extends React.Component {
 
          render(){
-              return <h2>My car: {this.props.brand} and my dog {this.props.animal}!</h2>;
+           const {brand} = this.props;
+
+              return (
+                <h2>My car: {brand}!</h2>
+              )
        }}
 
 
@@ -30,7 +47,9 @@
                 <div >
                 <Navbar ></Navbar>
                 <h1>Who lives in my garage?</h1>
-                <Car brand={carname} animal ={dog}/> </div> );
+                <Car brand={carname}/>
+                <Pet animal ={dog} />
+                </div> );
                } }
 
       ReactDOM.render(

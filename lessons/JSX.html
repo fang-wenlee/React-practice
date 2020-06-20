@@ -13,14 +13,29 @@
   <body>
     <!-- create html div -->
     <div id="root"></div>
-   <p style="color:red">It can't display  content display by React</p>
+   
 
 <script type="text/babel">
 const Navbar = () => <a href="../index.html">Home</a>
+const Hello = () => <p>p tag as function component, create UI componet as manya as i like</p>
+const TabletSample = () => {
+                       return(
+                       <table>
+                        <tr> <td>Name</td>
+                            <td>Price</td>
+                        </tr>
+                        <tr> <td>Samsung Galex</td>
+                             <td>$150</td>
+                        </tr>
+
+                        </table>)}
+
 ReactDOM.render(
             <div>
-              <Navbar ></Navbar>
+            <Navbar />
             <h1> hello React </h1>
+            <Hello />
+            <TabletSample />
             </div>
                 ,
                   document.getElementById("root")

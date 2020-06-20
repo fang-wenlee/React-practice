@@ -133,7 +133,7 @@ class ProductsDisplay extends React.Component {
 }
 
   class Store extends React.Component {
-       state = { data:[], loading: false}
+       state = { data:[], loading: false }
 
         componentDidMount(){
                  this.setState ( {loading: true})
@@ -164,7 +164,7 @@ class ProductsDisplay extends React.Component {
                              )
                       })} */
 
-                    <ProductsDisplay  products={this.state.data}  loading={this.state.loading} />
+                    <ProductsDisplay  products={this.state.data}   />
 
 <Navbar />
                      </div>

@@ -20,7 +20,8 @@ const Navbar = () => <a href="../index.html">Home</a>
 
 class Myhead extends React.Component{
       render() {
-        return <h2>I am a Car!</h2>;
+         const {meg} = this.props;
+        return <h2> {meg}</h2>;
     }
   }
 
@@ -36,20 +37,24 @@ class Car extends React.Component{
     }
 
       render() {
+
+        const {owner} = this.props;
+
            return (<div>
                   <Navbar />
-                  <Myhead />
+                  <Myhead meg="This is my car info.:" />
                   <h2>Brand: {this.state.brand}</h2>
                   <h2>Modle: {this.state.modle}</h2>
                   <h2>Year: {this.state.year}</h2>
                   <h2>Color: {this.state.color}</h2>
+                  <p>Owner: {owner}</p>
                   </div>);
 
               }
       }
 
 ReactDOM.render(
-                 <Car />,
+                 <Car owner="Sandy Lee" />,
                   document.getElementById("root")
 
 );

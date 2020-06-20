@@ -34,13 +34,17 @@ toggleOpenClosed = () =>{
   }))
 }
 
+toggleOpenClosedI = () =>{
+  this.setState( {open: !this.state.open} )
+}
+
 render() {
        return (
               <div>
             <Navbar />
                 <h2> You are { this.state.open ? "login" : "fail to login" }</h2>
 
-                  <button onClick={this.toggleOpenClosed}>Change</button>
+                  <button onClick={this.toggleOpenClosedI}>Change</button>
                   <Lake name = "Lake Tahoe" state="WA" />
                  <Lake name = "Angore Lake" state="CA"/>
                    <Lake name = "Shirley Lake" state="AR"/>
